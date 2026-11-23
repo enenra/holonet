@@ -1,16 +1,3 @@
-/*
- * Quartz 4 adaptation of the supplied Obsidian theme.
- *
- * Install as: source/quartz/styles/custom.scss
- * This stylesheet keeps the theme's dark green palette, Saira typography,
- * square-corner aesthetic, heading hierarchy, link treatment and callout text.
- *
- * Obsidian-only desktop UI selectors (titlebar, tabs, menus, settings modal,
- * file explorer and editor-only classes) have intentionally not been carried
- * over because those elements do not exist in a published Quartz page.
- */
-
-/* Load Saira for website visitors (Obsidian may have been using a local font). */
 @import url("https://fonts.googleapis.com/css2?family=Saira:wght@300;400;500;600&display=swap");
 
 /* Palette from the original theme.
