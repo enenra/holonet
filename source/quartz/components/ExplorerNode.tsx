@@ -1,4 +1,8 @@
 // @ts-ignore
+import {
+  LineDotRightHorizontal,
+  LifeBuoy,
+} from "lucide-preact"
 import { QuartzPluginData } from "../plugins/vfile"
 import {
   joinSegments,
@@ -8,6 +12,11 @@ import {
   SimpleSlug,
   FilePath,
 } from "../util/path"
+
+const tagIcons: Record<string, any> = {
+  spoke: LineDotRightHorizontal,
+  hub: LifeBuoy,
+}
 
 type OrderEntries = "sort" | "filter" | "map"
 
@@ -176,9 +185,34 @@ export function ExplorerNode({ node, opts, fullPath, fileData }: ExplorerNodePro
       {node.file ? (
         // Single file node
         <li key={node.file.slug}>
-          <a href={resolveRelative(fileData.slug!, node.file.slug!)} data-for={node.file.slug}>
-            {node.displayName}
-          </a>
+        <a
+            href={resolveRelative(fileData.slug!, node.file.slug!)}
+            data-for={node.file.slug}
+            class="explorer-file-link"
+        >
+            {(() => {
+            const tags = node.file?.frontmatter?.tags ?? []
+            const matchingTag = tags.find((tag) =>
+                Object.keys(tagIcons).includes(tag.toLowerCase()),
+            )
+            const TagIcon = matchingTag
+                ? tagIcons[matchingTag.toLowerCase()]
+                : null
+
+            return (
+                <>
+                {TagIcon && (
+                    <TagIcon
+                    size={16}
+                    strokeWidth={1.5}
+                    class="explorer-tag-icon"
+                    />
+                )}
+                <span>{node.displayName}</span>
+                </>
+            )
+            })()}
+        </a>
         </li>
       ) : (
         <li>

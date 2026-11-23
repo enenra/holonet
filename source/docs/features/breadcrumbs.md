@@ -3,7 +3,6 @@ title: "Breadcrumbs"
 tags:
   - component
 ---
-
 Breadcrumbs provide a way to navigate a hierarchy of pages within your site using a list of its parent folders.
 
 By default, the element at the very top of your page is the breadcrumb navigation bar (can also be seen at the top on this page!).
@@ -14,7 +13,7 @@ Most configuration can be done by passing in options to `Component.Breadcrumbs()
 
 For example, here's what the default configuration looks like:
 
-```typescript title="quartz.layout.ts"
+```typescript
 Component.Breadcrumbs({
   spacerSymbol: "❯", // symbol between crumbs
   rootName: "Home", // name of first/root element

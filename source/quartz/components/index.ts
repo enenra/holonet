@@ -45,3 +45,5 @@ export {
   Breadcrumbs,
   Comments,
 }
+
+export { default as Properties } from "./Properties"

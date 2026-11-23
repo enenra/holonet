@@ -1,19 +1,37 @@
-import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
-import { classNames } from "../util/lang"
+import {
+  LineDotRightHorizontal,
+  LifeBuoy,
+} from "lucide-preact"
 
-const ArticleTitle: QuartzComponent = ({ fileData, displayClass }: QuartzComponentProps) => {
+import {
+  QuartzComponent,
+  QuartzComponentConstructor,
+  QuartzComponentProps,
+} from "./types"
+
+const tagIcons: Record<string, any> = {
+  spoke: LineDotRightHorizontal,
+  hub: LifeBuoy,
+}
+
+const ArticleTitle: QuartzComponent = ({ fileData }: QuartzComponentProps) => {
   const title = fileData.frontmatter?.title
-  if (title) {
-    return <h1 class={classNames(displayClass, "article-title")}>{title}</h1>
-  } else {
-    return null
-  }
-}
+  const tags = fileData.frontmatter?.tags ?? []
 
-ArticleTitle.css = `
-.article-title {
-  margin: 2rem 0 0 0;
+  const matchingTag = tags.find((tag) =>
+    Object.keys(tagIcons).includes(tag.toLowerCase()),
+  )
+
+  const TagIcon = matchingTag ? tagIcons[matchingTag.toLowerCase()] : null
+
+  if (!title) return null
+
+  return (
+    <h1 class="article-title">
+      {TagIcon && <TagIcon size={28} strokeWidth={1.5} />}
+      {title}
+    </h1>
+  )
 }
-`
 
 export default (() => ArticleTitle) satisfies QuartzComponentConstructor
