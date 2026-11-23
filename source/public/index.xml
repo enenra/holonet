@@ -6,6 +6,18 @@
       <description>Last 10 notes on HOLONET DATA TERMINAL</description>
       <generator>Quartz -- quartz.jzhao.xyz</generator>
       <item>
+    <title>Scenario</title>
+    <link>https://quartz.jzhao.xyz/Scenario/Scenario</link>
+    <guid>https://quartz.jzhao.xyz/Scenario/Scenario</guid>
+    <description>asdads.</description>
+    <pubDate>Mon, 23 Nov 2026 20:21:21 GMT</pubDate>
+  </item><item>
+    <title>Locations</title>
+    <link>https://quartz.jzhao.xyz/Scenario/Locations/Locations</link>
+    <guid>https://quartz.jzhao.xyz/Scenario/Locations/Locations</guid>
+    <description>asdasdas.</description>
+    <pubDate>Mon, 23 Nov 2026 20:18:27 GMT</pubDate>
+  </item><item>
     <title>My GitHub Pages Notebook!</title>
     <link>https://quartz.jzhao.xyz/</link>
     <guid>https://quartz.jzhao.xyz/</guid>
@@ -16,12 +28,6 @@
     <link>https://quartz.jzhao.xyz/Scenario/Locations/Abandoned-Cobalt-Mine</link>
     <guid>https://quartz.jzhao.xyz/Scenario/Locations/Abandoned-Cobalt-Mine</guid>
     <description> Description An old cobalt mine located near the trading town of Dashbalar. Due to increasing offworld imports and decreasing ore yields, it was abandoned a few cycles ago.</description>
-    <pubDate>Mon, 23 Nov 2026 10:41:44 GMT</pubDate>
-  </item><item>
-    <title>index</title>
-    <link>https://quartz.jzhao.xyz/Scenario/</link>
-    <guid>https://quartz.jzhao.xyz/Scenario/</guid>
-    <description>This is a category? sasdasd.</description>
     <pubDate>Mon, 23 Nov 2026 10:41:44 GMT</pubDate>
   </item>
     </channel>
