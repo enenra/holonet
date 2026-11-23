@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "source/docs/setting up your GitHub repository.md",
+                "file": "README.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "setting up your GitHub repository"
+              "title": "README"
             }
           }
         ]
@@ -99,7 +99,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "source/docs/setting up your GitHub repository.md",
+                "file": "README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +118,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "source/docs/setting up your GitHub repository.md",
+                "file": "README.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
@@ -161,7 +161,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "source/docs/setting up your GitHub repository.md",
+                "file": "README.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -191,10 +191,12 @@
   },
   "active": "930bd78b918139c8",
   "lastOpenFiles": [
-    "source/content/index.md",
+    "source/README.md",
+    "source/docs/features/explorer.md",
+    "source/CODE_OF_CONDUCT.md",
     "source/docs/setting up your GitHub repository.md",
+    "source/content/index.md",
     "source/docs/layout.md",
-    "README.md",
-    "source/README.md"
+    "README.md"
   ]
 }
