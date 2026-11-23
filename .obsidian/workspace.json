@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "README.md",
+                "file": "source/docs/advanced/creating components.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "README"
+              "title": "creating components"
             }
           }
         ]
@@ -99,7 +99,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "README.md",
+                "file": "source/docs/advanced/creating components.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +118,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "README.md",
+                "file": "source/docs/advanced/creating components.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
@@ -161,7 +161,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "README.md",
+                "file": "source/docs/advanced/creating components.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -189,14 +189,14 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "930bd78b918139c8",
+  "active": "eb189dd6ed7c1818",
   "lastOpenFiles": [
+    "README.md",
     "source/README.md",
     "source/docs/features/explorer.md",
     "source/CODE_OF_CONDUCT.md",
     "source/docs/setting up your GitHub repository.md",
     "source/content/index.md",
-    "source/docs/layout.md",
-    "README.md"
+    "source/docs/layout.md"
   ]
 }
