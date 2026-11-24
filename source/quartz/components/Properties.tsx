@@ -90,7 +90,13 @@ const Properties: QuartzComponent = ({ fileData, allFiles }: QuartzComponentProp
             return parts.map((part, index) => {
                 const match = part.match(/^\[\[([^\]|]+)(?:\|([^\]]+))?\]\]$/)
 
-                if (!match) return part
+                if (!match) {
+                    return (
+                        <span key={index} class="property-plain-text">
+                            {part}
+                        </span>
+                    )
+                }
 
                 const target = match[1].trim()
                 const display = (match[2] ?? target).trim()
