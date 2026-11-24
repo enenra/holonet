@@ -317,7 +317,7 @@ hr {
 }
 
 /* ---------------------------------------------------------------------
-   Explorer icons
+   Explorer
    --------------------------------------------------------------------- */
 
 .explorer-file-link {
@@ -329,6 +329,17 @@ hr {
 .explorer-tag-icon {
     flex-shrink: 0;
     color: #5ce5b5;
+}
+
+/* Match folder-note typography to individual notes */
+.explorer .folder-container div > a.folder-title {
+    font-family: var(--bodyFont);
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+.folder-note-icon {
+    transform: none !important;
 }
 
 /* ---------------------------------------------------------------------

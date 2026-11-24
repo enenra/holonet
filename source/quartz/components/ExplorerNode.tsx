@@ -2,6 +2,9 @@
 import {
     LineDotRightHorizontal,
     LifeBuoy,
+    LandPlot,
+    Earth,
+    MapPin,
 } from "lucide-preact"
 import { QuartzPluginData } from "../plugins/vfile"
 import {
@@ -16,6 +19,9 @@ import {
 const tagIcons: Record<string, any> = {
     spoke: LineDotRightHorizontal,
     hub: LifeBuoy,
+    region: LandPlot,
+    planet: Earth,
+    location: MapPin,
 }
 
 type OrderEntries = "sort" | "filter" | "map"
@@ -212,13 +218,11 @@ export function ExplorerNode({ node, opts, fullPath, fileData }: ExplorerNodePro
                         class="explorer-file-link"
                     >
                         {(() => {
-                            const tags = node.file?.frontmatter?.tags ?? []
-                            const matchingTag = tags.find((tag) =>
-                                Object.keys(tagIcons).includes(tag.toLowerCase()),
+                            const tags: string[] = node.file?.frontmatter?.tags ?? []
+                            const matchingTag = Object.keys(tagIcons).find((iconTag) =>
+                                tags.some((noteTag) => noteTag.toLowerCase() === iconTag),
                             )
-                            const TagIcon = matchingTag
-                                ? tagIcons[matchingTag.toLowerCase()]
-                                : null
+                            const TagIcon = matchingTag ? tagIcons[matchingTag] : null
 
                             return (
                                 <>
@@ -240,20 +244,36 @@ export function ExplorerNode({ node, opts, fullPath, fileData }: ExplorerNodePro
                     {node.name !== "" && (
 
                         <div class="folder-container">
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="12"
-                                height="12"
-                                viewBox="5 8 14 8"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="2"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                class="folder-icon"
-                            >
-                                <polyline points="6 9 12 15 18 9"></polyline>
-                            </svg>
+                            {(() => {
+                                const tags: string[] = node.file?.frontmatter?.tags ?? []
+                                const matchingTag = Object.keys(tagIcons).find((iconTag) =>
+                                    tags.some((noteTag) => noteTag.toLowerCase() === iconTag),
+                                )
+                                const TagIcon = matchingTag ? tagIcons[matchingTag] : null
+
+                                return node.file && TagIcon ? (
+                                    <TagIcon
+                                        size={16}
+                                        strokeWidth={1.5}
+                                        class="folder-icon folder-note-icon explorer-tag-icon"
+                                    />
+                                ) : (
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="12"
+                                        height="12"
+                                        viewBox="5 8 14 8"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="folder-icon"
+                                    >
+                                        <polyline points="6 9 12 15 18 9"></polyline>
+                                    </svg>
+                                )
+                            })()}
 
                             <div key={node.name} data-folderpath={folderPath}>
                                 {node.file ? (

@@ -1,37 +1,43 @@
 import {
-  LineDotRightHorizontal,
-  LifeBuoy,
+    LineDotRightHorizontal,
+    LifeBuoy,
+    LandPlot,
+    Earth,
+    MapPin,
 } from "lucide-preact"
 
 import {
-  QuartzComponent,
-  QuartzComponentConstructor,
-  QuartzComponentProps,
+    QuartzComponent,
+    QuartzComponentConstructor,
+    QuartzComponentProps,
 } from "./types"
 
 const tagIcons: Record<string, any> = {
-  spoke: LineDotRightHorizontal,
-  hub: LifeBuoy,
+    spoke: LineDotRightHorizontal,
+    hub: LifeBuoy,
+    region: LandPlot,
+    planet: Earth,
+    location: MapPin,
 }
 
 const ArticleTitle: QuartzComponent = ({ fileData }: QuartzComponentProps) => {
-  const title = fileData.frontmatter?.title
-  const tags = fileData.frontmatter?.tags ?? []
+    const title = fileData.frontmatter?.title
+    const tags = fileData.frontmatter?.tags ?? []
 
-  const matchingTag = tags.find((tag) =>
-    Object.keys(tagIcons).includes(tag.toLowerCase()),
-  )
+    const matchingTag = Object.keys(tagIcons).find((iconTag) =>
+        tags.some((noteTag) => noteTag.toLowerCase() === iconTag),
+    )
 
-  const TagIcon = matchingTag ? tagIcons[matchingTag.toLowerCase()] : null
+    const TagIcon = matchingTag ? tagIcons[matchingTag] : null
 
-  if (!title) return null
+    if (!title) return null
 
-  return (
-    <h1 class="article-title">
-      {TagIcon && <TagIcon size={28} strokeWidth={1.5} />}
-      {title}
-    </h1>
-  )
+    return (
+        <h1 class="article-title">
+            {TagIcon && <TagIcon size={28} strokeWidth={1.5} />}
+            {title}
+        </h1>
+    )
 }
 
 export default (() => ArticleTitle) satisfies QuartzComponentConstructor
