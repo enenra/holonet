@@ -395,6 +395,16 @@ hr {
     transform: none !important;
 }
 
+.explorer li {
+    line-height: normal;
+    padding-block: 0.3rem;
+}
+
+.explorer-file-link span {
+    display: inline-block;
+    line-height: 1.3 !important;
+}
+
 /* ---------------------------------------------------------------------
    Properties
    --------------------------------------------------------------------- */
