@@ -7,6 +7,12 @@ import {
 import { QuartzPluginData } from "../plugins/vfile"
 import { resolveRelative } from "../util/path"
 
+// Set your preferred tab order here.
+const tabOrder = [
+    "Scenario",
+    "Mod Series",
+]
+
 // Retain discovered folder notes between page renders.
 let cachedTabs: Array<[string, QuartzPluginData]> = []
 
@@ -26,17 +32,32 @@ const SiteHeader: QuartzComponent = ({ allFiles, fileData }: QuartzComponentProp
     }
 
     // Update the cache when folder notes are available.
-    // Do not overwrite it with an empty list on special pages such as 404.
     if (folderNotes.size > 0) {
-        cachedTabs = [...folderNotes.entries()].sort(([a], [b]) =>
-            a.localeCompare(b, undefined, {
-                numeric: true,
-                sensitivity: "base",
-            }),
-        )
+        cachedTabs = [...folderNotes.entries()]
     }
 
-    const tabs = cachedTabs
+    // Apply custom ordering.
+    const tabs = [...cachedTabs].sort(([a], [b]) => {
+        const indexA = tabOrder.findIndex(
+            name => name.toLowerCase() === a,
+        )
+        const indexB = tabOrder.findIndex(
+            name => name.toLowerCase() === b,
+        )
+
+        // Unlisted folders appear alphabetically at the end.
+        if (indexA === -1 && indexB === -1) {
+            return a.localeCompare(b, undefined, {
+                numeric: true,
+                sensitivity: "base",
+            })
+        }
+
+        if (indexA === -1) return 1
+        if (indexB === -1) return -1
+
+        return indexA - indexB
+    })
 
     // Determine the active tab from the current page.
     const currentSlug = fileData.slug ?? ""
