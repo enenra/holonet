@@ -71,7 +71,7 @@ const SiteHeader: QuartzComponent = ({ allFiles, fileData }: QuartzComponentProp
         <header class="site-header">
             <div class="site-header-title-bar">
                 <div class="site-header-inner">
-                    <a href="/" class="site-header-title">
+                    <a href="/holonet" class="site-header-title">
                         HOLONET DATA TERMINAL
                     </a>
                 </div>
