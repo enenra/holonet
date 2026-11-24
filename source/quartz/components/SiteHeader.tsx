@@ -4,12 +4,17 @@ import {
     QuartzComponentConstructor,
     QuartzComponentProps,
 } from "./types"
+import { QuartzPluginData } from "../plugins/vfile"
 import { resolveRelative } from "../util/path"
 
-const SiteHeader: QuartzComponent = ({ allFiles, fileData }: QuartzComponentProps) => {
-    const folderNotes = new Map<string, (typeof allFiles)[number]>()
+// Retain discovered folder notes between page renders.
+let cachedTabs: Array<[string, QuartzPluginData]> = []
 
-    for (const file of allFiles) {
+const SiteHeader: QuartzComponent = ({ allFiles, fileData }: QuartzComponentProps) => {
+    // Discover folder notes dynamically.
+    const folderNotes = new Map<string, QuartzPluginData>()
+
+    for (const file of allFiles ?? []) {
         const parts = file.slug?.split("/")
 
         if (
@@ -20,21 +25,29 @@ const SiteHeader: QuartzComponent = ({ allFiles, fileData }: QuartzComponentProp
         }
     }
 
-    const tabs = [...folderNotes.entries()].sort(([a], [b]) =>
-        a.localeCompare(b, undefined, {
-            numeric: true,
-            sensitivity: "base",
-        }),
-    )
+    // Update the cache when folder notes are available.
+    // Do not overwrite it with an empty list on special pages such as 404.
+    if (folderNotes.size > 0) {
+        cachedTabs = [...folderNotes.entries()].sort(([a], [b]) =>
+            a.localeCompare(b, undefined, {
+                numeric: true,
+                sensitivity: "base",
+            }),
+        )
+    }
+
+    const tabs = cachedTabs
+
+    // Determine the active tab from the current page.
+    const currentSlug = fileData.slug ?? ""
 
     const currentFolder =
-        fileData.slug === "index"
+        currentSlug === "index"
             ? tabs[0]?.[0]
-            : fileData.slug?.split("/")[0]?.toLowerCase()
+            : currentSlug.split("/")[0]?.toLowerCase()
 
     return (
         <header class="site-header">
-            {/* Title occupies its own full-width row */}
             <div class="site-header-title-bar">
                 <div class="site-header-inner">
                     <a href="/" class="site-header-title">
@@ -43,7 +56,6 @@ const SiteHeader: QuartzComponent = ({ allFiles, fileData }: QuartzComponentProp
                 </div>
             </div>
 
-            {/* Tabs occupy a separate row underneath */}
             <div class="site-header-tab-bar">
                 <nav
                     class="site-header-inner site-header-tabs"
