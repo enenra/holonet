@@ -1,6 +1,6 @@
 ---
 tags:
-  - enemy
+  - neutral
 ---
 > [!quote] Description
 > a

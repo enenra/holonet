@@ -5,6 +5,7 @@ import {
     Earth,
     MapPin,
     Swords,
+    ShieldQuestionMark,
     UserGroup,
 } from "lucide-preact"
 
@@ -21,6 +22,7 @@ const tagIcons: Record<string, any> = {
     planet: Earth,
     location: MapPin,
     enemy: Swords,
+    neutral: ShieldQuestionMark,
     faction: UserGroup,
 }
 

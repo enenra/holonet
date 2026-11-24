@@ -85,6 +85,58 @@ body {
     text-transform: uppercase;
     color: white;
 }
+.site-header-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+}
+
+.site-header-subtitle {
+    font-family: var(--bodyFont);
+    font-size: 0.85rem;
+    letter-spacing: 0.3em;
+    color: var(--darkgray);
+    text-transform: uppercase;
+    width: 100%;
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    box-sizing: border-box;
+}
+.site-header-subtitle {
+    display: flex;
+    align-items: baseline;
+    font-family: var(--bodyFont);
+    font-size: 0.85rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    color: var(--gray);
+    text-transform: uppercase;
+}
+
+.subtitle-text {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 0;
+    animation: subtitle-type 1s steps(45, end) forwards;
+}
+
+@keyframes subtitle-type {
+    from { width: 0; }
+    to { width: 45ch; }
+}
+
+.subtitle-underline::after {
+    content: "_";
+    animation: cursor-blink 0.8s steps(1, end) 1s infinite;
+}
+
+@keyframes cursor-blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
 
 /* Separate full-width tab bar and divider */
 .site-header-tab-bar {

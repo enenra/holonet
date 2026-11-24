@@ -75,6 +75,9 @@ const SiteHeader: QuartzComponent = ({ allFiles, fileData }: QuartzComponentProp
                         HOLONET DATA TERMINAL
                     </a>
                 </div>
+                <div class="site-header-subtitle">
+                    <span class="subtitle-text">NODE ANS-125 // REBEL TACTICAL COMMAND &gt; </span><span class="subtitle-underline"></span>
+                </div>
             </div>
 
             <div class="site-header-tab-bar">
