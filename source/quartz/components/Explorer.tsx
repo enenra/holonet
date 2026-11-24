@@ -69,6 +69,20 @@ export default ((userOpts?: Partial<Options>) => {
         jsonTree = JSON.stringify(folders)
     }
 
+    function getActiveTree(fileData: QuartzPluginData) {
+        const currentFolder = fileData.slug?.split("/")[0]?.toLowerCase()
+
+        const activeNode = currentFolder
+            ? fileTree.children.find(
+                (child) =>
+                    child.isFolder &&
+                    child.name.toLowerCase() === currentFolder,
+            )
+            : undefined
+
+        return activeNode ?? fileTree.children.find((child) => child.isFolder) ?? fileTree
+    }
+
     const Explorer: QuartzComponent = ({
         ctx,
         cfg,
@@ -80,6 +94,10 @@ export default ((userOpts?: Partial<Options>) => {
             lastBuildId = ctx.buildId
             constructFileTree(allFiles)
         }
+        const activeTree = getActiveTree(fileData)
+        const activeTreeState = JSON.stringify(
+            activeTree.getFolderPaths(opts.folderDefaultState === "collapsed"),
+        )
 
         return (
             <div class={classNames(displayClass, "explorer")}>
@@ -89,7 +107,7 @@ export default ((userOpts?: Partial<Options>) => {
                     data-behavior={opts.folderClickBehavior}
                     data-collapsed={opts.folderDefaultState}
                     data-savestate={opts.useSavedState}
-                    data-tree={jsonTree}
+                    data-tree={activeTreeState}
                     aria-controls="explorer-content"
                     aria-expanded={opts.folderDefaultState === "open"}
                 >
@@ -111,7 +129,7 @@ export default ((userOpts?: Partial<Options>) => {
                 </button>
                 <div id="explorer-content">
                     <ul class="overflow" id="explorer-ul">
-                        <ExplorerNode node={fileTree} opts={opts} fileData={fileData} />
+                        <ExplorerNode node={activeTree} opts={opts} fileData={fileData} />
                         <li id="explorer-end" />
                     </ul>
                 </div>

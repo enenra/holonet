@@ -1,52 +1,10 @@
+
 @use "./base.scss";
+@use "./variables.scss" as *;
 
-
-/* Full-width site header */
-.site-header {
-    width: 100vw;
-    box-sizing: border-box;
-    margin-top: 0;
-    margin-left: calc(50% - 50vw);
-    margin-bottom: 0;
-    padding-top: 20px;
-    padding-left: 0;
-    padding: 1.2rem 2rem;
-    background: linear-gradient(to bottom,
-            #0f221c 0%,
-            #0e1a18 100%);
-
-    border-bottom: 1px solid #263c35;
-}
-
-.site-header-inner {
-    width: 100%;
-    max-width: 1500px;
-    margin: 0 auto;
-    padding: 0 2rem;
-    box-sizing: border-box;
-}
-
-.site-header-title {
-    font-family: "Saira", sans-serif;
-    font-size: 2rem;
-    font-weight: 300;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: white;
-}
-
-.page>#quartz-body .sidebar {
-    margin-top: 0;
-    padding-top: 20px;
-}
-
-.page>#quartz-body .center {
-    margin-top: 0;
-    padding-top: 20px;
-}
-
-
-/* --------------------------------------------------------------------- old */
+/* ---------------------------------------------------------------------
+   Colours and typography
+   --------------------------------------------------------------------- */
 
 :root {
     color-scheme: dark;
@@ -61,13 +19,15 @@
     --highlight: rgba(112, 140, 133, 0.18);
     --textHighlight: #d4d4d4;
 
-    /* Shared typography */
-    --bodyFont: "Saira", sans-serif;
+    --bodyFont: system-ui, sans-serif;
     --headerFont: "Saira", sans-serif;
     --codeFont: "Saira", sans-serif;
 }
 
-/* Global typography and page colours */
+/* ---------------------------------------------------------------------
+   Global page styling
+   --------------------------------------------------------------------- */
+
 html,
 body {
     background-color: var(--light);
@@ -76,14 +36,126 @@ body {
     letter-spacing: 0.3px;
 }
 
-/* Keep the main Quartz content on the same dark-green surface. */
 .page,
 .center,
-.center>article {
+.center > article {
     background-color: var(--light);
 }
 
-/* Page title: Quartz equivalent of Obsidian's inline title. */
+/* ---------------------------------------------------------------------
+   Site header
+   --------------------------------------------------------------------- */
+
+.site-header {
+    width: 100vw;
+    box-sizing: border-box;
+    margin-top: 0;
+    margin-left: calc(50% - 50vw);
+    margin-bottom: 0;
+}
+
+/* Gradient behind the site title only */
+.site-header-title-bar {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 1.2rem 2rem;
+    background: linear-gradient(
+        to bottom,
+        #0f221c 0%,
+        #0e1a18 100%
+    );
+}
+
+/* Shared alignment with the page content */
+.site-header-inner {
+    width: 100%;
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    box-sizing: border-box;
+}
+
+/* Site title */
+.site-header-title {
+    display: inline-block;
+    font-family: var(--headerFont);
+    font-size: 2rem;
+    font-weight: 300;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: white;
+}
+
+/* Separate full-width tab bar and divider */
+.site-header-tab-bar {
+    width: 100%;
+    box-sizing: border-box;
+    border-top: 1px solid #263c35;
+    background: var(--light);
+}
+
+/* Top-level folder tabs */
+.site-header-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.site-header-tab {
+    display: inline-block;
+    padding: 0.65rem 0 0.5rem;
+    color: var(--darkgray);
+    font-family: var(--headerFont);
+    font-size: 0.95rem;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.site-header-tab:hover,
+.site-header-tab.active {
+    color: #5ce5b5 !important;
+    border-bottom-color: #5ce5b5;
+    background: transparent !important;
+}
+
+/* ---------------------------------------------------------------------
+   Page layout and spacing
+   --------------------------------------------------------------------- */
+
+.page > #quartz-body {
+    min-height: 0;
+    height: auto;
+    align-items: start;
+}
+
+.page > #quartz-body > .center {
+    grid-area: grid-center;
+    height: auto;
+    min-height: 0;
+    margin-top: 0;
+    padding-top: 20px;
+}
+
+.page > #quartz-body > .center > article {
+    grid-area: auto;
+}
+
+.page > #quartz-body .sidebar {
+    margin-top: 0;
+    padding-top: 20px;
+}
+
+.page > #quartz-body > .sidebar {
+    height: auto !important;
+    min-height: 0 !important;
+    align-self: start;
+}
+
+/* ---------------------------------------------------------------------
+   Titles and headings
+   --------------------------------------------------------------------- */
+
 .page-title,
 .article-title {
     color: var(--dark);
@@ -94,7 +166,18 @@ body {
     text-transform: uppercase;
 }
 
-/* Headings: preserve the Saira typeface and light grey colour. */
+.article-title {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 20px;
+}
+
+.article-title svg {
+    flex-shrink: 0;
+    color: #5ce5b5;
+}
+
 .center article h1,
 .center article h2,
 .center article h3,
@@ -127,7 +210,10 @@ body {
     font-weight: 300;
 }
 
-/* Body text and links */
+/* ---------------------------------------------------------------------
+   Article content
+   --------------------------------------------------------------------- */
+
 .center article {
     color: var(--darkgray);
     line-height: 1.7;
@@ -142,8 +228,54 @@ body {
     font-size: 0.9em;
 }
 
-.article-title {
-    margin-top: 20px;
+.center article .callout,
+.center article .callout-content {
+    color: var(--tertiary);
+}
+
+.content-meta,
+.breadcrumb-container,
+.tag-link,
+.backlinks,
+.graph {
+    color: var(--secondary);
+}
+
+/* Square corners */
+.center article blockquote,
+.center article pre,
+.center article table,
+.center article th,
+.center article td,
+.center article .callout,
+.center article .callout-title,
+.center article img {
+    border-radius: 0;
+}
+
+/* ---------------------------------------------------------------------
+   Links
+   --------------------------------------------------------------------- */
+
+a {
+    color: #5ce5b5;
+    background-color: transparent;
+    text-decoration: none;
+    font-weight: normal;
+}
+
+a:hover {
+    color: #D4D4D4 !important;
+    background-color: transparent;
+    text-decoration: none;
+    font-weight: normal;
+}
+
+a.internal,
+a.external,
+a.internal:hover,
+a.external:hover {
+    background-color: transparent !important;
 }
 
 .center article a,
@@ -160,90 +292,33 @@ body {
     text-decoration: none;
 }
 
-/* Callout body text */
-.center article .callout,
-.center article .callout-content {
-    color: var(--tertiary);
-}
+/* ---------------------------------------------------------------------
+   Callouts, separators and search
+   --------------------------------------------------------------------- */
 
-/* Tags and secondary metadata use the muted green from the original theme. */
-.content-meta,
-.breadcrumb-container,
-.tag-link,
-.backlinks,
-.graph {
-    color: var(--secondary);
-}
-
-/* Keep the visual language square-cornered. */
-.center article blockquote,
-.center article pre,
-.center article table,
-.center article th,
-.center article td,
-.center article .callout,
-.center article .callout-title,
-.center article img {
-    border-radius: 0;
-}
-
-/* Links */
-a {
-    color: #5ce5b5;
-    background-color: transparent;
-    text-decoration: none;
-    font-weight: normal;
-}
-
-a:hover {
-    color: #D4D4D4 !important;
-    background-color: transparent;
-    text-decoration: none;
-    font-weight: normal;
-}
-
-/* Remove Quartz link highlight backgrounds */
-a.internal,
-a.external,
-a.internal:hover,
-a.external:hover {
-    background-color: transparent !important;
-}
-
-/* Callouts */
 .callout {
     background-color: #0a1413;
     border-color: #233235;
 }
 
 .callout-title .callout-title-inner {
-    font-family: "Saira", sans-serif;
+    font-family: var(--headerFont);
     font-weight: normal;
     text-transform: uppercase;
 }
 
-/* Horizontal Line */
 hr {
     background-color: #233235 !important;
 }
 
-/* Search */
-.search>.search-button {
+.search > .search-button {
     background-color: #0a1413;
     border-color: #233235;
 }
 
-/* Icons */
-.article-title {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-}
-
-.article-title svg {
-    flex-shrink: 0;
-    color: #5ce5b5;
-}
+/* ---------------------------------------------------------------------
+   Explorer icons
+   --------------------------------------------------------------------- */
 
 .explorer-file-link {
     display: flex;
@@ -256,13 +331,16 @@ hr {
     color: #5ce5b5;
 }
 
-/* Properties */
+/* ---------------------------------------------------------------------
+   Properties
+   --------------------------------------------------------------------- */
+
 .note-properties {
     margin-bottom: 2rem;
 }
 
 .note-properties h3 {
-    font-family: "Saira", sans-serif;
+    font-family: var(--headerFont);
     font-size: 1rem;
     font-weight: 500;
     margin-top: 0;
@@ -295,34 +373,71 @@ hr {
     overflow-wrap: anywhere;
 }
 
-/* Correct Quartz grid layout and prevent unnecessary page height */
-.page > #quartz-body {
-    min-height: 0;
-    height: auto;
-    align-items: start;
-}
+/* ---------------------------------------------------------------------
+   Footer
+   --------------------------------------------------------------------- */
 
-/* Main content belongs in the center grid area */
-.page > #quartz-body > .center {
-    grid-area: grid-center;
-    height: auto;
-    min-height: 0;
-}
-
-.page > #quartz-body > .center > article {
-    grid-area: auto;
-}
-
-/* Sidebars should fit their content */
-.page > #quartz-body > .sidebar {
-    height: auto !important;
-    min-height: 0 !important;
-    align-self: start;
-}
-
-/* Footer spacing */
 .page > #quartz-body > footer {
     margin-top: 0.5rem !important;
     margin-bottom: 0 !important;
     padding-bottom: 0 !important;
+}
+
+/* ---------------------------------------------------------------------
+   Mobile adjustments
+   --------------------------------------------------------------------- */
+
+@media all and ($mobile) {
+    .site-header-title {
+        font-size: 1.5rem;
+        letter-spacing: 0.2em;
+    }
+
+    .site-header-tabs {
+        gap: 1rem;
+    }
+
+    .site-header-tab {
+        font-size: 0.85rem;
+    }
+}
+
+
+/* Force site title and tabs into separate horizontal rows */
+header.site-header {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    width: 100vw;
+}
+
+header.site-header > .site-header-title-bar,
+header.site-header > .site-header-tab-bar {
+    display: block !important;
+    width: 100% !important;
+    flex: 0 0 auto !important;
+}
+
+header.site-header > .site-header-title-bar {
+    order: 1;
+}
+
+header.site-header > .site-header-tab-bar {
+    order: 2;
+}
+
+header.site-header .site-header-inner {
+    display: block;
+}
+
+header.site-header .site-header-tabs {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+/* Remove unintended spacing inside the site header */
+header.site-header {
+    gap: 0 ;
 }
