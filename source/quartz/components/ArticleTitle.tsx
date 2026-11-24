@@ -4,6 +4,8 @@ import {
     LandPlot,
     Earth,
     MapPin,
+    Swords,
+    UserGroup,
 } from "lucide-preact"
 
 import {
@@ -18,6 +20,8 @@ const tagIcons: Record<string, any> = {
     region: LandPlot,
     planet: Earth,
     location: MapPin,
+    enemy: Swords,
+    faction: UserGroup,
 }
 
 const ArticleTitle: QuartzComponent = ({ fileData }: QuartzComponentProps) => {

@@ -6,6 +6,12 @@
       <description>Last 10 notes on HOLONET DATA TERMINAL</description>
       <generator>Quartz -- quartz.jzhao.xyz</generator>
       <item>
+    <title>Civilians</title>
+    <link>https://quartz.jzhao.xyz/Scenario/Factions/Civilians</link>
+    <guid>https://quartz.jzhao.xyz/Scenario/Factions/Civilians</guid>
+    <description> Description a asdasd.</description>
+    <pubDate>Tue, 24 Nov 2026 18:59:30 GMT</pubDate>
+  </item><item>
     <title>Dashbalar</title>
     <link>https://quartz.jzhao.xyz/Scenario/Locations/Ansion/Khorun-Expanse/Dashbalar/Dashbalar</link>
     <guid>https://quartz.jzhao.xyz/Scenario/Locations/Ansion/Khorun-Expanse/Dashbalar/Dashbalar</guid>
@@ -27,13 +33,13 @@
     <title>Bandits</title>
     <link>https://quartz.jzhao.xyz/Scenario/Factions/Bandits</link>
     <guid>https://quartz.jzhao.xyz/Scenario/Factions/Bandits</guid>
-    <description>asdasd.</description>
+    <description> Description a asdasd.</description>
     <pubDate>Tue, 24 Nov 2026 17:33:46 GMT</pubDate>
   </item><item>
     <title>Factions</title>
     <link>https://quartz.jzhao.xyz/Scenario/Factions/Factions</link>
     <guid>https://quartz.jzhao.xyz/Scenario/Factions/Factions</guid>
-    <description>agasdsaf.</description>
+    <description> Description asd .</description>
     <pubDate>Tue, 24 Nov 2026 17:33:29 GMT</pubDate>
   </item><item>
     <title>Mod Series</title>
@@ -58,12 +64,6 @@
     <link>https://quartz.jzhao.xyz/</link>
     <guid>https://quartz.jzhao.xyz/</guid>
     <description>Hello world! Write some words here! Test 2.</description>
-    <pubDate>Mon, 23 Nov 2026 10:41:44 GMT</pubDate>
-  </item><item>
-    <title>Abandoned Cobalt Mine</title>
-    <link>https://quartz.jzhao.xyz/Scenario/Locations/Ansion/Khorun-Expanse/Dashbalar/Abandoned-Cobalt-Mine</link>
-    <guid>https://quartz.jzhao.xyz/Scenario/Locations/Ansion/Khorun-Expanse/Dashbalar/Abandoned-Cobalt-Mine</guid>
-    <description> Description An old cobalt mine located near the trading town of Dashbalar. Due to increasing offworld imports and decreasing ore yields, it was abandoned a few cycles ago.</description>
     <pubDate>Mon, 23 Nov 2026 10:41:44 GMT</pubDate>
   </item>
     </channel>
