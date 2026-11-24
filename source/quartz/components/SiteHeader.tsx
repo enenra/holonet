@@ -64,7 +64,7 @@ const SiteHeader: QuartzComponent = ({ allFiles, fileData }: QuartzComponentProp
 
     const currentFolder =
         currentSlug === "index"
-            ? tabs[0]?.[0]
+            ? undefined
             : currentSlug.split("/")[0]?.toLowerCase()
 
     return (

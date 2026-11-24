@@ -278,7 +278,7 @@ export function ExplorerNode({ node, opts, fullPath, fileData }: ExplorerNodePro
 
                     )}
 
-                    <div class={`folder-outer ${node.depth === 0 || isDefaultOpen ? "open" : ""}`}>
+                    <div class={`folder-outer ${isDefaultOpen ? "open" : ""}`}>
                         <ul
                             style={{
                                 paddingLeft: node.name !== "" ? "1.4rem" : "0",

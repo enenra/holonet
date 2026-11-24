@@ -18,19 +18,6 @@ const observer = new IntersectionObserver((entries) => {
     }
 })
 
-function toggleExplorer(this: HTMLElement) {
-    this.classList.toggle("collapsed")
-
-    const expanded = this.getAttribute("aria-expanded") === "true"
-
-    this.setAttribute("aria-expanded", String(!expanded))
-
-    const content = document.getElementById("explorer-content")
-    if (!content) return
-
-    content.classList.toggle("collapsed")
-}
-
 function saveFolderState(path: string, collapsed: boolean) {
     const entry = currentExplorerState.find((item) => item.path === path)
 
@@ -79,16 +66,8 @@ function toggleFolder(evt: Event) {
 }
 
 function setupExplorer() {
-    const explorer = document.getElementById("explorer")
     const explorerContainer = document.querySelector(".explorer")
-
-    if (!explorer || !explorerContainer) return
-
-    // Set up the main Explorer heading
-    explorer.addEventListener("click", toggleExplorer)
-    window.addCleanup(() =>
-        explorer.removeEventListener("click", toggleExplorer),
-    )
+    if (!explorerContainer) return
 
     // Set up folder click handling
     explorerContainer.addEventListener("click", toggleFolder)
@@ -98,35 +77,16 @@ function setupExplorer() {
 
     // Restore saved folder states
     const storageTree = localStorage.getItem("fileTree")
-    const useSavedState = explorer.dataset.savestate === "true"
-
     const oldState: FolderState[] =
-        storageTree && useSavedState ? JSON.parse(storageTree) : []
+        storageTree ? JSON.parse(storageTree) : []
 
     const oldIndex = new Map(
         oldState.map((entry) => [entry.path, entry.collapsed]),
     )
 
-    const newState: FolderState[] = explorer.dataset.tree
-        ? JSON.parse(explorer.dataset.tree)
-        : []
+    const newState: FolderState[] = []
 
-    currentExplorerState = newState.map(({ path, collapsed }) => ({
-        path,
-        collapsed: oldIndex.has(path)
-            ? oldIndex.get(path)!
-            : collapsed,
-    }))
-
-    // Preserve saved folder states that are missing from data-tree
-    for (const saved of oldState) {
-        if (!currentExplorerState.some((entry) => entry.path === saved.path)) {
-            currentExplorerState.push(saved)
-        }
-    }
-
-    // Apply saved states to the rendered folder tree
-    // Restore saved folder states
+    // Read the rendered folders and their current default state.
     const folderElements = explorerContainer.querySelectorAll<HTMLElement>(
         "[data-folderpath]",
     )
@@ -135,20 +95,28 @@ function setupExplorer() {
         const path = folderPathElement.dataset.folderpath
         if (!path) return
 
-        const state = currentExplorerState.find(
-            (entry) => entry.path === path,
-        )
-
-        if (!state) return
-
-        // The folder content is the sibling after .folder-container
         const folderContainer = folderPathElement.closest(".folder-container")
         const folderOuter = folderContainer?.nextElementSibling
 
         if (!(folderOuter instanceof HTMLElement)) return
 
-        folderOuter.classList.toggle("open", !state.collapsed)
+        const defaultCollapsed = !folderOuter.classList.contains("open")
+        const collapsed = oldIndex.has(path)
+            ? oldIndex.get(path)!
+            : defaultCollapsed
+
+        folderOuter.classList.toggle("open", !collapsed)
+        newState.push({ path, collapsed })
     })
+
+    currentExplorerState = newState
+
+    // Preserve saved states for folders not currently rendered.
+    for (const saved of oldState) {
+        if (!currentExplorerState.some((entry) => entry.path === saved.path)) {
+            currentExplorerState.push(saved)
+        }
+    }
 }
 
 document.addEventListener("nav", () => {
