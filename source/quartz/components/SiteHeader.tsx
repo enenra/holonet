@@ -76,7 +76,7 @@ const SiteHeader: QuartzComponent = ({ allFiles, fileData }: QuartzComponentProp
                     </a>
                 </div>
                 <div class="site-header-subtitle">
-                    <span class="subtitle-text">NODE ANS-125 // REBEL TACTICAL COMMAND &gt; </span><span class="subtitle-underline"></span>
+                    <span class="subtitle-text">[INIT] :: CONNECTION ESTABLISHED // NODE ANS-125 // REBEL TACTICAL COMMAND &gt; </span><span class="subtitle-underline"></span>
                 </div>
             </div>
 

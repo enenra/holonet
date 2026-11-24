@@ -93,10 +93,13 @@ body {
 }
 
 .site-header-subtitle {
-    font-family: var(--bodyFont);
+    display: flex;
+    align-items: baseline;
+    font-family: monospace;
     font-size: 0.85rem;
-    letter-spacing: 0.3em;
-    color: var(--darkgray);
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    color: var(--gray);
     text-transform: uppercase;
     width: 100%;
     max-width: 1500px;
@@ -104,33 +107,25 @@ body {
     padding: 0 2rem;
     box-sizing: border-box;
 }
-.site-header-subtitle {
-    display: flex;
-    align-items: baseline;
-    font-family: var(--bodyFont);
-    font-size: 0.85rem;
-    font-weight: 400;
-    letter-spacing: 0.12em;
-    color: var(--gray);
-    text-transform: uppercase;
-}
 
 .subtitle-text {
     display: inline-block;
     overflow: hidden;
     white-space: nowrap;
-    width: 0;
-    animation: subtitle-type 1s steps(45, end) forwards;
+    clip-path: inset(0 100% 0 0);
+    animation: subtitle-type 1.5s steps(70, end) forwards;
 }
 
 @keyframes subtitle-type {
-    from { width: 0; }
-    to { width: 45ch; }
+    to {
+        clip-path: inset(0 0 0 0);
+    }
 }
 
 .subtitle-underline::after {
     content: "_";
-    animation: cursor-blink 0.8s steps(1, end) 1s infinite;
+    opacity: 0;
+    animation: cursor-blink 0.8s steps(1, end) 1.5s infinite;
 }
 
 @keyframes cursor-blink {
@@ -444,6 +439,29 @@ hr {
     margin-top: 0.5rem !important;
     margin-bottom: 0 !important;
     padding-bottom: 0 !important;
+}
+
+.footer {
+    font-family: monospace;
+    font-size: 0.85rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    color: var(--darkgray);
+    text-transform: uppercase;
+    width: 100%;
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
+.footer-text {
+    opacity: 0;
+    animation: footer-appear 0.15s normal 2s forwards;
+}
+
+@keyframes footer-appear {
+    to {
+        opacity: 1;
+    }
 }
 
 /* ---------------------------------------------------------------------

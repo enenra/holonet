@@ -286,6 +286,7 @@ export function ExplorerNode({ node, opts, fullPath, fileData }: ExplorerNodePro
                                     <a
                                         href={resolveRelative(fileData.slug!, node.file.slug!)}
                                         data-for={node.file.slug}
+                                        data-folderpath={fullPath}
                                         class="folder-title"
                                     >
                                         {node.displayName}
