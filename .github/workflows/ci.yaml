@@ -39,7 +39,7 @@ jobs:
         working-directory: ./source
 
       - name: Build Quartz
-        run: npx quartz build
+        run: node quartz/bootstrap-cli.mjs build
         working-directory: ./source
         env:
           NODE_ENV: production
