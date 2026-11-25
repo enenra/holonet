@@ -34,6 +34,10 @@ jobs:
         run: npm install
         working-directory: ./source
 
+      - name: Make Quartz executable
+        run: chmod +x ./quartz/bootstrap-cli.mjs
+        working-directory: ./source
+
       - name: Build Quartz
         run: npx quartz build
         working-directory: ./source
