@@ -40,6 +40,7 @@ export function getStaticResourcesFromPlugins(ctx: BuildCtx) {
 
 export * from "./transformers"
 export * from "./filters"
+export * from "./filters/ExcludeUnpublished"
 export * from "./emitters"
 
 declare module "vfile" {

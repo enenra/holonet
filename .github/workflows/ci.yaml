@@ -64,6 +64,8 @@ jobs:
           npm install
           npx quartz build
         working-directory: ./source
+        env:
+          NODE_ENV: production
 
       - name: Copy raw HTML folder
         run: |
