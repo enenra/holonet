@@ -7,7 +7,7 @@
    --------------------------------------------------------------------- */
 
 :root {
-    color-scheme: dark;
+    color-scheme: dark !important;
 
     --light: #0e1a18;
     --lightgray: #172522;
@@ -541,4 +541,15 @@ header.site-header .site-header-tabs {
 /* Remove unintended spacing inside the site header */
 header.site-header {
     gap: 0 ;
+}
+
+html,
+body,
+.page,
+#quartz-root,
+#quartz-body,
+.center,
+.center > article,
+.sidebar {
+    background-color: #0e1a18 !important;
 }
