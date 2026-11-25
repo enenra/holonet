@@ -1,3 +1,4 @@
+
 import {
     LineDotRightHorizontal,
     LifeBuoy,
@@ -35,14 +36,22 @@ const ArticleTitle: QuartzComponent = ({ fileData }: QuartzComponentProps) => {
     )
 
     const TagIcon = matchingTag ? tagIcons[matchingTag] : null
+    const isUnpublished = tags.some(
+        (tag) => tag.toLowerCase() === "unpublished",
+    )
 
     if (!title) return null
 
     return (
-        <h1 class="article-title">
-            {TagIcon && <TagIcon size={28} strokeWidth={1.5} />}
-            {title}
-        </h1>
+        <>
+            {isUnpublished && (
+                <div class="unpublished-stripe" aria-label="Unpublished" />
+            )}
+            <h1 class="article-title">
+                {TagIcon && <TagIcon size={28} strokeWidth={1.5} />}
+                {title}
+            </h1>
+        </>
     )
 }
 
