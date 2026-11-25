@@ -24,6 +24,11 @@
     --codeFont: "Saira", sans-serif;
 }
 
+
+html[saved-theme="light"] {
+    color-scheme: dark !important;
+}
+
 /* ---------------------------------------------------------------------
    Global page styling
    --------------------------------------------------------------------- */
@@ -40,6 +45,17 @@ body {
 .center,
 .center > article {
     background-color: var(--light);
+}
+
+html,
+body,
+.page,
+#quartz-root,
+#quartz-body,
+.center,
+.center > article,
+.sidebar {
+    background-color: #0e1a18 !important;
 }
 
 /* ---------------------------------------------------------------------
@@ -135,6 +151,7 @@ body {
 
 /* Separate full-width tab bar and divider */
 .site-header-tab-bar {
+    background-color: #0e1a18 !important;
     width: 100%;
     box-sizing: border-box;
     border-top: 1px solid #263c35;
@@ -541,15 +558,4 @@ header.site-header .site-header-tabs {
 /* Remove unintended spacing inside the site header */
 header.site-header {
     gap: 0 ;
-}
-
-html,
-body,
-.page,
-#quartz-root,
-#quartz-body,
-.center,
-.center > article,
-.sidebar {
-    background-color: #0e1a18 !important;
 }
