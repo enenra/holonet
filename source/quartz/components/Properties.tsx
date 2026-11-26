@@ -12,7 +12,8 @@ const Properties: QuartzComponent = ({ fileData, allFiles }: QuartzComponentProp
 
     const properties = Object.entries(frontmatter).filter(
         ([key, value]) =>
-            !["tags", "title"].includes(key.toLowerCase()) && value != null,
+            !["tags", "title", "flair"].includes(key.toLowerCase()) &&
+            value != null,
     )
 
     if (properties.length === 0) return null

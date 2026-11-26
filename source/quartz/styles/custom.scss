@@ -302,15 +302,23 @@ body,
    Article content
    --------------------------------------------------------------------- */
 
+.article-flair {
+    color: var(--gray);
+    font-family: var(--bodyFont);
+    font-size: 1.0rem;
+    font-style: italic;
+    margin-top: -0.5rem;
+    margin-bottom: 1rem;
+}
+
 .center article {
     color: var(--darkgray);
     line-height: 1.7;
 }
 
-
-.page article p >strong,
+.page article p>strong,
 b {
-  color: inherit;
+    color: inherit;
 }
 
 .breadcrumb-container {

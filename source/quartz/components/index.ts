@@ -47,3 +47,4 @@ export {
 }
 
 export { default as Properties } from "./Properties"
+export { default as Flair } from "./Flair"

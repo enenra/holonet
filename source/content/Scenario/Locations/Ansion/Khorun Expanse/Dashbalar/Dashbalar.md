@@ -4,6 +4,7 @@ tags:
   - hub
 Region: "[[Khorun Expanse]]"
 Affiliation: "[[Civilians]]"
+Flair: "The great spire guiding the way."
 ---
 > [!info] Public Holonet Entry
 > The trade town **Dashbalar** originated as the final rest area and supply hub for [Alwari](Civilians.md) caravans crossing the [[Khorun Expanse]] east onto the [[Sorr-ul-Paan Plateau]] and [[Cuipernam]], or west towards the canyons of [[Delgerhan]]. The town is built at the foot of a cliff marked by a lone rock spire, serving since ancient times as a guiding marker for caravans traversing the expanse. Its very name is said to be the extinct local Alwari dialect's term for "great spire".
@@ -28,7 +29,7 @@ asd
 
 ---
 
-> [!tip] 💡 - Alliance Intelligence Assessment
+> [!tip] 💡 Alliance Intelligence Assessment
 > *TOP SECRET :: CLASSIFIED // LEVEL 3 :: ACCESS GRANTED UNDER OPERATION PATHMAKER*
 >
 > Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
