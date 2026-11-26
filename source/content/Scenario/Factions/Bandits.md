@@ -1,5 +1,6 @@
 ---
 tags:
+  - faction
   - enemy
 ---
 > [!quote] Description

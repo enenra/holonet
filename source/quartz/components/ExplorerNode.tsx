@@ -7,6 +7,7 @@ import {
     MapPin,
     Swords,
     ShieldQuestionMark,
+    Handshake,
     UserGroup,
 } from "lucide-preact"
 import { QuartzPluginData } from "../plugins/vfile"
@@ -25,8 +26,10 @@ const tagIcons: Record<string, any> = {
     region: LandPlot,
     planet: Earth,
     location: MapPin,
+    
     enemy: Swords,
     neutral: ShieldQuestionMark,
+    friendly: Handshake,
     faction: UserGroup,
 }
 

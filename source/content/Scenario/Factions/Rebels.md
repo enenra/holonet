@@ -1,5 +1,6 @@
 ---
 tags:
+  - faction
   - friendly
 ---
 > [!quote] Description

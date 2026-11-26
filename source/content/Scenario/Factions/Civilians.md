@@ -1,5 +1,6 @@
 ---
 tags:
+  - faction
   - neutral
 ---
 > [!quote] Description
