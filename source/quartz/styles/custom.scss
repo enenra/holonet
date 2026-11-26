@@ -398,15 +398,20 @@ a.external:hover {
    Callouts, separators and search
    --------------------------------------------------------------------- */
 
-.callout {
-    background-color: #0a1413;
-    border-color: #233235;
-}
-
 .callout-title .callout-title-inner {
     font-family: var(--headerFont);
     font-weight: normal;
     text-transform: uppercase;
+}
+
+.callout[data-callout="info"] {
+    background-color: #0a1413;
+}
+
+.callout[data-callout="tip"] {
+    background-color: #0a1413;
+  --color: #f0a040;
+  --border: #f0a040;
 }
 
 hr {
