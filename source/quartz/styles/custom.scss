@@ -330,7 +330,7 @@ b {
     font-size: 0.9em;
 }
 
-.popover .breadcrumb-container {
+.popover .breadcrumb-container, #preview-container .breadcrumb-container {
   margin-top: 1rem;
 }
 
@@ -424,6 +424,12 @@ hr {
 .search>.search-button {
     background-color: #0a1413;
     border-color: #233235;
+}
+
+#results-container .result-card h3 {
+  font-family: var(--bodyFont);
+  font-size: 1rem;
+  font-weight: 500;
 }
 
 /* ---------------------------------------------------------------------
