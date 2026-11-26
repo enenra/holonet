@@ -18,10 +18,10 @@ export default (() => {
         const baseDir = fileData.slug === "404" ? path : pathToRoot(fileData.slug!)
 
         const iconPath = joinSegments(baseDir, "static/icon.png")
-        const intelIconPath = joinSegments(
-            url.pathname as FullSlug,
-            "static/icons/intel.svg",
-        )
+        const intelIconPath =
+            cfg.baseUrl === "enenra.github.io/holonet"
+                ? "/holonet/static/icons/intel.svg"
+                : "/static/icons/intel.svg"
         const ogImagePath = `https://${cfg.baseUrl}/static/og-image.png`
 
         return (
@@ -45,12 +45,20 @@ export default (() => {
                 <meta name="description" content={description} />
                 <meta name="generator" content="Quartz" />
                 <script
-                    dangerouslySetInnerHTML={{
-                        __html: `document.documentElement.style.setProperty(
-                    "--callout-icon-intel",
-                    'url("${intelIconPath}")'
-                    )`,
-                    }}
+                dangerouslySetInnerHTML={{
+                    __html: `
+                    const configuredBasePath = ${JSON.stringify(url.pathname.replace(/\/$/, ""))};
+                    const isLocal =
+                        window.location.hostname === "localhost" ||
+                        window.location.hostname === "127.0.0.1";
+                    const basePath = isLocal ? "" : configuredBasePath;
+
+                    document.documentElement.style.setProperty(
+                        "--callout-icon-intel",
+                        'url("' + basePath + '/static/icons/intel.svg")'
+                    );
+                    `,
+                }}
                 />
                 {css.map((href) => (
                     <link key={href} href={href} rel="stylesheet" type="text/css" spa-preserve />
