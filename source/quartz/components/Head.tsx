@@ -18,7 +18,10 @@ export default (() => {
         const baseDir = fileData.slug === "404" ? path : pathToRoot(fileData.slug!)
 
         const iconPath = joinSegments(baseDir, "static/icon.png")
-        const intelIconPath = joinSegments(baseDir, "static/icons/intel.svg")
+        const intelIconPath = joinSegments(
+            url.pathname as FullSlug,
+            "static/icons/intel.svg",
+        )
         const ogImagePath = `https://${cfg.baseUrl}/static/og-image.png`
 
         return (
@@ -42,12 +45,12 @@ export default (() => {
                 <meta name="description" content={description} />
                 <meta name="generator" content="Quartz" />
                 <script
-                dangerouslySetInnerHTML={{
-                    __html: `document.documentElement.style.setProperty(
+                    dangerouslySetInnerHTML={{
+                        __html: `document.documentElement.style.setProperty(
                     "--callout-icon-intel",
                     'url("${intelIconPath}")'
                     )`,
-                }}
+                    }}
                 />
                 {css.map((href) => (
                     <link key={href} href={href} rel="stylesheet" type="text/css" spa-preserve />
