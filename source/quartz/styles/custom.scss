@@ -330,6 +330,10 @@ b {
     font-size: 0.9em;
 }
 
+.popover .breadcrumb-container {
+  margin-top: 1rem;
+}
+
 .center article .callout,
 .center article .callout-content {
     color: var(--tertiary);
@@ -404,14 +408,13 @@ a.external:hover {
     text-transform: uppercase;
 }
 
-.callout[data-callout="info"] {
+.callout {
     background-color: #0a1413;
 }
 
 .callout[data-callout="tip"] {
-    background-color: #0a1413;
-  --color: #f0a040;
-  --border: #f0a040;
+    --color: #f0a040;
+    --border: #f0a040;
 }
 
 hr {
