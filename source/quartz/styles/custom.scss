@@ -307,6 +307,12 @@ body,
     line-height: 1.7;
 }
 
+
+.page article p >strong,
+b {
+  color: inherit;
+}
+
 .breadcrumb-container {
     margin-top: 0;
 }
