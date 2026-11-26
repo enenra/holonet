@@ -26,7 +26,7 @@ const tagIcons: Record<string, any> = {
     region: LandPlot,
     planet: Earth,
     location: MapPin,
-    
+
     enemy: Swords,
     neutral: ShieldQuestionMark,
     friendly: Handshake,
@@ -289,7 +289,6 @@ export function ExplorerNode({ node, opts, fullPath, fileData }: ExplorerNodePro
                                     <a
                                         href={resolveRelative(fileData.slug!, node.file.slug!)}
                                         data-for={node.file.slug}
-                                        data-folderpath={fullPath}
                                         class="folder-title"
                                     >
                                         {node.displayName}

@@ -101,6 +101,7 @@ export default ((userOpts?: Partial<Options>) => {
                                 node={child}
                                 opts={opts}
                                 fileData={fileData}
+                                fullPath={activeTree.name}
                             />
                         ))}
                         <li id="explorer-end" />

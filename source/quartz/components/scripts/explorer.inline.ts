@@ -36,26 +36,29 @@ function toggleFolder(evt: Event) {
 
     const icon = target.closest(".folder-icon")
     const button = target.closest(".folder-button")
+    const title = target.closest(".folder-title")
 
-    if (!icon && !button) return
+    if (!icon && !button && !title) return
 
-    evt.preventDefault()
-    evt.stopPropagation()
-
-    const folderPathElement = (
-        icon
-            ? icon.parentElement?.querySelector("[data-folderpath]")
-            : button?.closest("[data-folderpath]")
+    const folderContainer = target.closest(".folder-container")
+    const folderPathElement = folderContainer?.querySelector(
+        "div[data-folderpath]",
     ) as MaybeHTMLElement
 
     if (!folderPathElement) return
 
-    const folderContainer = folderPathElement.parentElement
     const folderOuter = folderContainer?.nextElementSibling as MaybeHTMLElement
-
     if (!folderOuter) return
 
-    folderOuter.classList.toggle("open")
+    // Clicking a folder-note title navigates to the note and ensures
+    // its children remain expanded after navigation.
+    if (title) {
+        folderOuter.classList.add("open")
+    } else {
+        evt.preventDefault()
+        evt.stopPropagation()
+        folderOuter.classList.toggle("open")
+    }
 
     const collapsed = !folderOuter.classList.contains("open")
     const path = folderPathElement.dataset.folderpath
@@ -88,7 +91,7 @@ function setupExplorer() {
 
     // Read the rendered folders and their current default state.
     const folderElements = explorerContainer.querySelectorAll<HTMLElement>(
-        "[data-folderpath]",
+        "div[data-folderpath]",
     )
 
     folderElements.forEach((folderPathElement) => {
