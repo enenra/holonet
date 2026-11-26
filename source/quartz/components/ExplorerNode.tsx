@@ -1,15 +1,3 @@
-// @ts-ignore
-import {
-    LineDotRightHorizontal,
-    LifeBuoy,
-    LandPlot,
-    Earth,
-    MapPin,
-    Swords,
-    ShieldQuestionMark,
-    Handshake,
-    UserGroup,
-} from "lucide-preact"
 import { QuartzPluginData } from "../plugins/vfile"
 import {
     joinSegments,
@@ -19,19 +7,7 @@ import {
     SimpleSlug,
     FilePath,
 } from "../util/path"
-
-const tagIcons: Record<string, any> = {
-    spoke: LineDotRightHorizontal,
-    hub: LifeBuoy,
-    region: LandPlot,
-    planet: Earth,
-    location: MapPin,
-
-    enemy: Swords,
-    neutral: ShieldQuestionMark,
-    friendly: Handshake,
-    faction: UserGroup,
-}
+import { tagIcons } from "../util/tagIcons"
 
 type OrderEntries = "sort" | "filter" | "map"
 

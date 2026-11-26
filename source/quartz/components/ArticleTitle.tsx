@@ -1,34 +1,10 @@
-
-import {
-    LineDotRightHorizontal,
-    LifeBuoy,
-    LandPlot,
-    Earth,
-    MapPin,
-    Swords,
-    ShieldQuestionMark,
-    Handshake,
-    UserGroup,
-} from "lucide-preact"
-
 import {
     QuartzComponent,
     QuartzComponentConstructor,
     QuartzComponentProps,
 } from "./types"
 
-const tagIcons: Record<string, any> = {
-    spoke: LineDotRightHorizontal,
-    hub: LifeBuoy,
-    region: LandPlot,
-    planet: Earth,
-    location: MapPin,
-    
-    enemy: Swords,
-    neutral: ShieldQuestionMark,
-    friendly: Handshake,
-    faction: UserGroup,
-}
+import { tagIcons } from "../util/tagIcons"
 
 const ArticleTitle: QuartzComponent = ({ fileData }: QuartzComponentProps) => {
     const title = fileData.frontmatter?.title

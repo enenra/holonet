@@ -10,7 +10,7 @@ import { resolveRelative } from "../util/path"
 // Set your preferred tab order here.
 const tabOrder = [
     "Scenario",
-    "Mod Series",
+    "Identification Guide",
 ]
 
 // Retain discovered folder notes between page renders.
