@@ -193,18 +193,6 @@ body,
    Page layout and spacing
    --------------------------------------------------------------------- */
 
-.page>#quartz-body {
-    min-height: 0;
-    height: auto;
-    align-items: start;
-    align-content: start !important;
-
-    grid-template-rows: auto auto !important;
-    grid-template-areas:
-        "grid-sidebar-left grid-center grid-sidebar-right"
-        "grid-sidebar-left grid-footer grid-sidebar-right" !important;
-}
-
 .page>#quartz-body>.center {
     grid-area: grid-center;
     height: auto;
@@ -610,4 +598,11 @@ header.site-header .site-header-tabs {
 /* Remove unintended spacing inside the site header */
 header.site-header {
     gap: 0;
+}
+
+@media (max-width: 1200px) {
+    .page > #quartz-body > .center {
+        padding-right: 1rem;
+        box-sizing: border-box;
+    }
 }

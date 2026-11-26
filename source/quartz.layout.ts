@@ -22,7 +22,6 @@ export const defaultContentPageLayout: PageLayout = {
         Component.Flair(),
     ],
     left: [
-        Component.MobileOnly(Component.Spacer()),
         Component.Search(),
         Component.DesktopOnly(Component.Explorer()),
     ],
