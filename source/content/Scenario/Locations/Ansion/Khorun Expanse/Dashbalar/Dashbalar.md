@@ -10,6 +10,7 @@ Facilities:
     - "Cantina"
 Flair: "The great spire guiding the way."
 ---
+
 > [!holonet] Public Holonet Entry
 > The trade town **Dashbalar** originated as the final rest area and supply hub for [Alwari](Civilians.md) caravans crossing the [[Khorun Expanse]] east onto the [[Sorr-ul-Paan Plateau]] and [[Cuipernam]], or west towards the canyons of [[Delgerhan]]. The town is built at the foot of a cliff marked by a lone rock spire, serving since ancient times as a guiding marker for caravans traversing the expanse. Its very name is said to be the extinct local Alwari dialect's term for "great spire".
 >

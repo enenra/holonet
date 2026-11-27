@@ -4,6 +4,10 @@ tags:
   - spoke
 Hub: "[[Dashbalar]]"
 Affiliation: "[[Bandits]]"
+Flair: "This old monastery has seen better days... and better people."
 ---
-> [!quote] Description
+
+> [!holonet] Public Holonet Entry
 > asdasda
+
+---
