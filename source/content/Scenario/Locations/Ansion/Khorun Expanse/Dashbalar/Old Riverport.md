@@ -4,7 +4,7 @@ tags:
   - spoke
 Hub: "[[Dashbalar]]"
 Affiliation: "[[Civilians]]"
-Flair: "A former transport hub, largely abandoned."
+Flair: "A former transport hub, long past its glory days."
 ---
 
 > [!holonet] Public Holonet Entry
